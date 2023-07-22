@@ -1,0 +1,36 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Scanner;
+import java.util.Set;
+import java.util.HashSet;
+
+class insertion_of_sorted_array{
+    public static void insertion(int[] arr1,int n1,int[] arr2,int n2){
+        Set<Integer> s1=new HashSet<>();
+        Set<Integer> s2=new HashSet<>();
+        for(int i=0;i<n1;i++){
+            s1.add(arr1[i]);
+        }
+        for(int i=0;i<n2;i++){
+            s2.add(arr2[i]);
+        }
+        s1.retainAll(s2); //keeps only common elements in set
+        for(Integer it : s1){
+            System.out.println(it);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int n1=scan.nextInt();
+        int[] arr1=new int[n1];
+        for(int i=0;i<n1;i++){
+            arr1[i]=scan.nextInt();
+        }
+        int n2=scan.nextInt();
+        int[] arr2=new int[n2];
+        for(int i=0;i<n2;i++){
+            arr2[i]=scan.nextInt();
+        }
+        insertion(arr1,n1,arr2,n2);
+    }
+}
