@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+public class Recursion{
+    public static void subsequence(int i,int[] arr,ArrayList<Integer> list){
+        if(i==arr.length){
+            for(int it: list){
+                System.out.print(it+" ");
+            }
+            if(list.size()==0) System.out.print("{}");
+            System.out.println();
+            return;
+        }
+        subsequence(i+1,arr,list);
+        list.add(arr[i]);
+        subsequence(i+1,arr,list);
+        list.remove(list.size() - 1);
+        
+    }
+    public static void main(String[] args){
+        int[] arr={1,2,3};
+        ArrayList<Integer> list=new ArrayList<>();
+        subsequence(0,arr,list);
+    }
+}
