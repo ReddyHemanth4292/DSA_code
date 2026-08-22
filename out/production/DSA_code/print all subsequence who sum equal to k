@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Recursion {
+    public static void sequence(int i,int[] arr,int s,int sum,ArrayList<Integer> list){
+        if(i==arr.length){
+            if(sum==s){
+                for(int it: list){
+                    System.out.print(it+" ");
+                }
+                System.out.println();
+            }
+            return;
+        }
+        list.add(arr[i]);
+        s=arr[i]+s;
+        sequence(i+1,arr,s,sum,list);
+        list.remove(list.size() - 1);
+        s=s-arr[i];
+        sequence(i+1,arr,s,sum,list);
+    }
+    
+    public static void main(String args[]) {
+      int[] arr={1,2,3,4,5};
+      int sum=5;
+      ArrayList<Integer> list=new ArrayList<>();
+      sequence(0,arr,0,sum,list);
+    }
+}
